@@ -1,0 +1,54 @@
+import sys
+from nose.tools import *
+from ex48 import parser,lexicon
+
+class ParserError(Exception):  
+    pass
+
+def test_Sentence():
+    assert parser.Sentence(('noun', 'bear'), ('verb', 'eat'), ('noun', 'honey')).subject == 'bear'
+    assert parser.Sentence(('noun', 'bear'), ('verb', 'eat'), ('noun', 'honey')).verb == 'eat'
+    assert parser.Sentence(('noun', 'bear'), ('verb', 'eat'), ('noun', 'honey')).object == 'honey'
+    assert_equal( parser.Sentence(('noun', 'bear'), ('verb', 'eat'), ('noun', 'honey')).object, 'honey')
+
+
+def test_peek():
+    word_list = []
+    assert None == parser.peek(word_list)
+    assert_equal(parser.peek([('noun', 'bear')]), 'noun')
+    result =parser.peek([('verb', 'eat'), ('stop', 'the'), ('noun', 'honey')])
+    assert_equal(result,'verb')
+
+def test_match():
+    word_list = []
+    assert None == parser.match(word_list,'noun')
+    assert_equal(parser.match([('noun', 'bear')], 'noun'), ('noun', 'bear'))
+    assert_equal(parser.match([('noun', 'bear')], 'verb'), None)
+    result =parser.match([('verb', 'eat'), ('stop', 'the'), ('noun', 'honey')], 'verb')
+    assert_equal(result,('verb', 'eat'))
+    result =parser.match([('verb', 'eat'), ('stop', 'the'), ('noun', 'honey')], 'noun')
+    assert_equal(result,None)
+
+def test_skip():
+    assert_equal(parser.skip([('noun', 'bear')], 'noun'), None)
+    assert_equal(parser.skip([('noun', 'bear')], 'verb'), None)
+    result =parser.skip([('verb', 'eat'), ('stop', 'the'), ('noun', 'honey')], 'noun')
+    assert_equal(result, None)
+    result =parser.skip([('verb', 'eat'), ('stop', 'the'), ('noun', 'honey')], 'verb')
+    assert_equal(result, None)
+
+def test_parse_verb():
+    assert_equal(parser.parse_verb([('verb', 'eat')]), ('verb', 'eat'))
+    result = parser.parse_verb([('verb', 'eat'), ('stop', 'the'), ('noun', 'honey')])
+    assert_equal(result, ('verb', 'eat'))
+    assert_raises(parser.ParserError, parser.parse_verb ,('noun', 'honey') )
+
+def test_parse_object():
+    assert_equal(parser.parse_object([('noun', 'honey')]), ('noun', 'honey'))
+    result = parser.parse_object([('stop', 'the'), ('noun', 'honey')])
+    assert_equal(result, ('noun', 'honey'))
+
+def test_parse_subject():
+    assert_equal(parser.parse_subject([('noun', 'bear'), ('verb', 'eat'), ('stop', 'the'), ('noun', 'honey')]), ('noun', 'bear'))
+    result = parser.parse_subject([('noun', 'bear'), ('verb', 'eat'), ('stop', 'the'), ('noun', 'honey')])
+    assert_equal(result, ('noun', 'bear'))
