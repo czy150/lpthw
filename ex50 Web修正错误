@@ -9,3 +9,31 @@ def hello_world():
 if __name__ == "__main__":
     app.run()
     
+如果把return语句删除或者不返回值，重启flask，再刷新浏览器，会看到报错"Internal Server Error"
+Internal Server Error
+The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+
+回到终端
+[2020-10-25 14:25:30,403] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\Users\\.venvs\lpthw\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users.venvs\lpthw\lib\site-packages\flask\app.py", line 1953, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "C:\Users\\.venvs\lpthw\lib\site-packages\flask\app.py", line 1968, in finalize_request
+    response = self.make_response(rv)
+  File "C:\Users\\.venvs\lpthw\lib\site-packages\flask\app.py", line 2097, in make_response
+    raise TypeError(
+TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
+127.0.0.1 - - [25/Oct/2020 14:25:30] "[35m[1mGET / HTTP/1.1[0m" 500 -
+
+用“调试模式”运行flask, 更好的错误页面和更有用的信息；在网上运行它并不安全，需要通过显示声明启用
+windows的调试模式是$env: FLASSK_DEBUG=1
+我的调试声明和给出的不一样，可能是版本问题吧
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ 
