@@ -59,4 +59,4 @@ app.config.from_object(config)
  * Debugger is active!
  * Debugger PIN: 115-191-056
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit
-
+刷新浏览器后，得到了视频中有详细信息的页面
