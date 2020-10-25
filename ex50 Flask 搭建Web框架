@@ -1,0 +1,17 @@
+mkdir gothonweb
+cd gothonweb
+mddir bin gothonweb tests docs templates(模板）
+new-item gothonweb\__init__.py -type file
+new-item tests\__init__.py -type file
+
+
+创建一个最基本的flasky应用程序 app.py
+from flask import Flask 
+app = Flask(__name__)
+
+@app.route('/')
+def hello_world():
+    return 'hello,World!'
+
+if __name__ == "__main__":
+    app.run()
