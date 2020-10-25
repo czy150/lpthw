@@ -15,3 +15,31 @@ def hello_world():
 
 if __name__ == "__main__":
     app.run()
+
+运行 (lpthw) PS C:\Users\ccc\projects\gothonweb> python app.py
+
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ 
+ 使用浏览器打开http://localhost:5000，
+ 浏览器页面出现hello,World!
+127.0.0.1 - - [25/Oct/2020 12:44:28] code 400, message Bad request version ('localhost\x00\x17\x00\x00ÿ\x01\x00\x01\x00\x00')
+127.0.0.1 - - [25/Oct/2020 12:44:28] "[35m[1m  üºâÕi@ú7ûÏ`_çª=[úáá×Çþ·7K}Ýß ?¼TR7ÆÄäÞz4'îÂÆÇ·ÞÈ'  úúÀ+À/À,À0Ì©Ì¨ÀÀ   / 5 jj               localhost   ÿ   [0m" HTTPStatus.BAD_REQUEST -
+127.0.0.1 - - [25/Oct/2020 12:44:28] code 400, message Bad request version ('localhost\x00\x17\x00\x00ÿ\x01\x00\x01\x00\x00')
+Ñ9 êý÷ dYµÙYà2³ÄSÿ£ë.I<B|=¹»[ò  À+À/À,À0Ì©Ì¨ÀÀ   / 5          localhost   ÿ   [0m" HTTPStatus.BAD_REQUEST -
+127.0.0.1 - - [25/Oct/2020 12:44:28] code 400, message Bad request version ('localhost\x00\x17\x00\x00ÿ\x01\x00\x01\x00\x00')
+ùáõä12¦/tùP,±ÐÄ«¤R  **À+À/À,À0Ì©Ì¨ÀÀ   / 5           localhost   ÿ   [0m" HTTPStatus.BAD_REQUEST -
+127.0.0.1 - - [25/Oct/2020 12:44:28] code 400, message Bad request version ('¶\x10X2"Åcõö3Ûà\x17Ù\x86')
+127.0.0.1 - - [25/Oct/2020 12:44:28] "[35m[1m  ü÷-ôFCsPÝÑ¶b$M5ËgÔÔÃõû<ß?9s Ï@d¶X2"Åcõö3ÛàÙ[0m" HTTPStatus.BAD_REQUEST -
+127.0.0.1 - - [25/Oct/2020 12:44:28] code 400, message Bad request version ('`\\.b\x132m\x87>µ¼')
+127.0.0.1 - - [25/Oct/2020 12:44:28] "[35m[1m  üTo*8ÁÁð°Õã×â ¹³âçiÓØé `\.b2m>µ¼ [0m" HTTPStatus.BAD_REQUEST -
+127.0.0.1 - - [25/Oct/2020 12:44:29] code 400, message Bad request version ('RM?<ô\x9a4î«(\x8fsp$X\x02IIà\x00"\x9a\x9a\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x00')
+127.0.0.1 - - [25/Oct/2020 12:44:29] "[35m[1m  ü¾V\¢CÊ¹BCÄ®v)ÑèÕÿÞÍåùÖp] £do[×#¸; RM?<ô4î«(sp$XIIà "À+À/À,À0Ì©Ì¨ÀÀ   / 5 [0m" HTTPStatus.BAD_REQUEST -
+127.0.0.1 - - [25/Oct/2020 12:44:39] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [25/Oct/2020 12:44:39] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+出现乱码。。。
+
