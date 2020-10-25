@@ -1,4 +1,5 @@
 访问web应用程序时
 1.使用的计算机名为localhost，表示网络中的这台计算机，不管实际叫什么，都可以使用localhost访问，网络端口是5000
-2.连接成功后，浏览器对app.py发出HTTP请求，要求访问的URL为/，这通常是网站的第一个URL
+2.连接成功后，浏览器对app.py发出HTTP请求（request），要求访问的URL为/，这通常是网站的第一个URL
 3.flask 找到了函数def index,调用函数完成请求，该函数返回值被flask传递给浏览器
+4.flask完成对浏览器请求的处理，将响应（response）传回浏览器
