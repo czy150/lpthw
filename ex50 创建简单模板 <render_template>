@@ -16,3 +16,5 @@ render_template从templates/目录加载了.html文件,这是flask的默认设�
 输出为Hello,world!
 greeting改为True，
 输出为I just want to say True # 斜体绿色True
+
+用flask框架读取了html文件，遇到可执行代码后执行命令，通过{{}}传出同名参数
