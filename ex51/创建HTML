@@ -16,3 +16,5 @@
 为什么呢？
 先搜了一下，好像和端口占用有关，用这个方法杀了5000的端口占用程序
 https://jingyan.baidu.com/article/fdffd1f89a0c8af3e98ca10e.html
+发现和那个WAIT_TIME有关，修理的方法没仔细看
+最后重启电脑就好了。。。
