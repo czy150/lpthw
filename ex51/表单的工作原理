@@ -8,9 +8,10 @@ app = Flask(__name__)
 @app.route("/he")
 def index():
     name = request.args.get('name','Nobody')
+    greet = request.args.get('greet','Hello')
 
     if name:
-        greeting =f"Hello, {name}"
+        greeting =f"{greet}, {name}"
     else:
         greeting = "Hello, world"
 
@@ -18,3 +19,7 @@ def index():
 
 if __name__ == "__main__":
     app.run(Debug=True)
+
+
+在URL后面用？添加参数，键值对（key=value)创建字典，使用get方法获取字典里的value，如果没有找到，就是用默认值，也就是get方法里的第二个参数
+可以不只提供一个参数，使用&把参数连接起来，程序(.py)里的所有方法会用这些参数
