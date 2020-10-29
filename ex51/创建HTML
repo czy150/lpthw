@@ -14,3 +14,5 @@
 127.0.0.1 - - [29/Oct/2020 17:13:41] "[33mGET /hello/ HTTP/1.1[0m" 404 -
 
 为什么呢？
+先搜了一下，好像和端口占用有关，用这个方法杀了5000的端口占用程序
+https://jingyan.baidu.com/article/fdffd1f89a0c8af3e98ca10e.html
