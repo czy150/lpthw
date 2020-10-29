@@ -1,0 +1,51 @@
+需要学习一下HTML。。。
+HTML语句基本懂了
+
+写一个index.html的文档
+<html>
+    <head>
+        <title>Gothons Of Planet Percal #25</title>
+    </head>
+    <body>
+
+    {% if greeting %}
+        I just want to say
+        <em style="color: green;font-size: 2em;">{{ greeting}}</em>
+    {% else %}
+        <em>Hello</em>,world!
+    {% endif %}
+    </body>
+</html>
+直接打开index.html文档的显示内容为{% if greeting %} I just want to say {{ greeting}} {% else %} Hello,world! {% endif %}  {{ greeting}}是斜体绿色的（ <em style="color: green;font-size: 2em;">{{ greeting}}</em>）
+
+app.py修改调用flask中的Flask和render__template   render(渲染) template(模板)
+from flask import Flask 
+from flask import render_template
+
+app = Flask(__name__)
+
+@app.route('/')
+def hello_world():
+    greeting = "Hello World"
+    return render_template("index.html", greeting = greeting)
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
+然后开始运行
+(lpthw) PS C:\Users\ccc\projects\gothonweb> python app.py
+* Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 115-191-056
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+127.0.0.1 - - [26/Oct/2020 15:58:49] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [26/Oct/2020 15:58:50] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+
+Web进入http://127.0.0.1:5000/，显示为：
+I just want to say Hello World  
+Hello World为斜体绿色

@@ -1,0 +1,20 @@
+从app.py导入render_template函数
+render_template从templates/目录加载了.html文件,这是flask的默认设置
+浏览器触发return render_template("index.html", greeting = greeting)
+加载了index.html 
+
+因为是从python中加载的，html中的用{%代码%}的方法让代码可以被执行，就是“可执行代码”，可以理解为传入到python文件中执行？
+另一个{{greeting}}则是接收来自python中的同名变量，转化在html中。
+
+如果改变greeting和HTML中的内容
+
+当我把index.html中的{{greeting}}改为了其他内容，直接打开html文件就是{% if greeting %} I just want to say {{czy}} {% else %} Hello,world! {% endif %}
+用python框架flask运行，在浏览器打开就是I just want to say
+因为接收不到同名变量了，所以{{}}为空
+
+如果把return中改成 greeting 改成False ，那么html中可执行代码的if greeting为假，执行了else
+输出为Hello,world!
+greeting改为True，
+输出为I just want to say True # 斜体绿色True
+
+用flask框架读取了html文件，遇到可执行代码后执行命令，通过{{}}传出同名参数
